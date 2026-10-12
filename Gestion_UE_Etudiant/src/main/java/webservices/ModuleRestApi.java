@@ -36,4 +36,10 @@ public class ModuleRestApi{
     public Response getModuleByMatricule(@PathParam("inputMatricule") String matricule){
         return Response.ok(helper.getModuleByMatricule(matricule)).build();
     }
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    public Response getModulesByType(@QueryParam("type") Module.TypeModule type){
+        return Response.ok(helper.getModulesByType(type)).build();
+    }
 }
