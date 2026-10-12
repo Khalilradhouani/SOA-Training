@@ -30,4 +30,10 @@ public class ModuleRestApi{
             return Response.status(400).entity("error").build();
             }
         }
+    @Path("/{inputMatricule}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    public Response getModuleByMatricule(@PathParam("inputMatricule") String matricule){
+        return Response.ok(helper.getModuleByMatricule(matricule)).build();
+    }
 }
