@@ -42,4 +42,12 @@ public class ModuleRestApi{
     public Response getModulesByType(@QueryParam("type") Module.TypeModule type){
         return Response.ok(helper.getModulesByType(type)).build();
     }
+    @Path("/delete")
+    @DELETE
+    public Response deleteModule(@QueryParam("matricule") String matricule){
+        if(helper.deleteModule(matricule)){
+            return Response.status(200).entity("ok").build();
+        }
+        else return Response.status(400).entity("error").build();
+    }
 }
